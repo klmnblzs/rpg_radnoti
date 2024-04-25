@@ -30,7 +30,7 @@ public class InputManager {
                             wait(2);
                             break;
                         }
-                        else if(userInput.split(" ")[1].equals(s)) {
+                        else if(userInput.split(" ")[1].toUpperCase().equals(s)) {
                             p.setLocation(s);
                             System.out.println("ide mentél: " + s);
                             wait(2);

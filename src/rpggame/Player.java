@@ -81,6 +81,13 @@ public class Player {
         }
     }
     
+    public boolean checkHeal() {
+        if(hp > hp*0.15) {
+            return true;
+        }
+        return false;
+    }
+    
     public boolean isAlive() {
         return hp>0;
     }
