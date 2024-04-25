@@ -31,9 +31,11 @@ public class Utils {
     }
 
     public static void DisplayPlayerStats(Player p) {
-        System.out.println("$ "+p.getMoney()+" | " + ReplaceMonogrammes(p.getLocation()) + " (" + p.getLocation() + ")");
-        System.out.println(p.getWeapon() + " | " + p.getDmg() + " sebzés");
-        System.out.println("Életerő: " + p.getHp() + "/" + p.getMaxHp() + " | " + p.getFirstAidAmt() + " elsősegély doboz");
+        System.out.println("========================================");
+        System.out.println("$"+p.getMoney()+" | " + ReplaceMonogrammes(p.getLocation()) + " (" + p.getLocation() + ")                   ║");
+        System.out.println(p.getWeapon() + " | " + p.getDmg() + " sebzés                 ║");
+        System.out.println("Életerő: " + p.getHp() + "/" + p.getMaxHp() + " | " + p.getFirstAidAmt() + " elsősegély doboz  ║");
+        System.out.println("========================================");
         System.out.println();
     }
 
@@ -41,17 +43,17 @@ public class Utils {
         String map = "========================================\n" +
                 "    OO                                 ║\n" +
                 " OOOOOOO                               ║\n" +
-                " OO" + Colors.GREEN + "SF" + Colors.RESET + "OOO                               ║ PARANCSOK: \n" +
-                " OOOOOOO              OO               ║ - go\n" +
-                " OOOOOO              OOOOOO            ║ - heal\n" +
-                "   OOO    OOOOOOOOOOOOOOOOOOOOO        ║ - shop\n" +
-                "        OOOOOOOOOOOOOOOOOOOOOOOO       ║ - help\n" +
+                " OO" + Colors.GREEN + "SF" + Colors.RESET + "OOO                               ║\n" +
+                " OOOOOOO              OO               ║\n" +
+                " OOOOOO              OOOOOO            ║\n" +
+                "   OOO    OOOOOOOOOOOOOOOOOOOOO        ║\n" +
+                "        OOOOOOOOOOOOOOOOOOOOOOOO       ║\n" +
                 "        OOO" + Colors.RED + "LA" + Colors.RESET + "OOOOOOOOOOOOOOOOOOO       ║\n" +
                 "         OOOOOOOOOOOOOOO" + Colors.RED + "LV" + Colors.RESET + "OOOOOO       ║\n" +
-                "         OOOOOOOOOOOOOOOOOOOOO         ║\n" +
-                "         OOOOOOOOOOOOOOOOO             ║\n" +
-                "        OOOOOOOOOOOOOOO                ║\n" +
-                "       OOOOOOOOOOOOOOOOOO              ║\n" +
+                "         OOOOOOOOOOOOOOOOOOOOO         ║SZÍNEK:\n" +
+                "         OOOOOOOOOOOOOOOOO             ║  - "+Colors.CYAN+"Civilizált terület"+Colors.RESET+"\n" +
+                "        OOOOOOOOOOOOOOO                ║  - "+Colors.RED+"Ellenséges terület"+Colors.RESET+"\n" +
+                "       OOOOOOOOOOOOOOOOOO              ║  - "+Colors.GREEN+"Menekülési pont"+Colors.RESET+"\n" +
                 "      OOOOOOOO" + Colors.CYAN + "WA" + Colors.RESET + "OOOOOOOOO              ║\n" +
                 "      OOOOOOOOOOOOOOOOO" + Colors.RED + "TX" + Colors.RESET + "O             ║\n" +
                 "      OOOOOOOOOOOOOOOOOOO              ║\n" +
