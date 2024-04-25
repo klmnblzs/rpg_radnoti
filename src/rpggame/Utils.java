@@ -1,6 +1,7 @@
 package rpggame;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Utils {
     public static void CheckContain(String userInput, ArrayList<String> list) {
@@ -31,6 +32,44 @@ public class Utils {
         System.out.println("Éhség: " + p.getStarvation());
     }
     
+    public static void DisplayMap() {
+        String map =    "========================================\n" +
+                        "                                       ║\n" +
+                        "                                       ║\n" +
+                        "    OO                                 ║\n" +
+                        " OOOOOOO                               ║\n" +
+                        " OO"+Colors.GREEN+"SF"+Colors.RESET+"OOO                               ║ PARANCSOK: \n" +
+                        " OOOOOOO              OO               ║ - go\n" +
+                        " OOOOOO              OOOOOO            ║ - heal\n" +
+                        "   OOO    OOOOOOOOOOOOOOOOOOOOO        ║ - shop\n" +
+                        "        OOOOOOOOOOOOOOOOOOOOOOOO       ║ - help\n" +
+                        "        OOO"+Colors.BLUE+"LA"+Colors.RESET+"OOOOOOOOOOOOOOOOOOO       ║\n" +
+                        "         OOOOOOOOO"+Colors.BLUE+"LV"+Colors.RESET+"OOOOOOOOOOOO       ║\n" +
+                        "         OOOOOOOOOOOOOOOOOOOOO         ║\n" +
+                        "         OOOOOOOOOOOOOOOOO             ║\n" +
+                        "        OOOOOOOOOOOOOOO                ║\n" +
+                        "       OOOOOOOOOOOOOOOOOO              ║\n" +
+                        "      OOOOOOOO"+Colors.BLUE+"WA"+Colors.RESET+"OOOOOOOOO              ║\n" +
+                        "      OOOOOOOOOOOOOOOOO"+Colors.BLUE+"JA"+Colors.RESET+"O             ║\n" +
+                        "      OOOOOOOOOOOOOOOOOOO              ║\n" +
+                        "     OOOOO"+Colors.BLUE+"NYC"+Colors.RESET+"OOOOOOOOOOOOO             ║\n" +
+                        "    OOOOOOOOOOOOOOOOOOOOO              ║\n" +
+                        "    OOOOOOOOOOOOOOOOOOOOO              ║\n" +
+                        "        OOOOOOOOOOOOOOOO               ║\n" +
+                        "        OOOO"+Colors.BLUE+"TX"+Colors.RESET+"OOOOOOO"+Colors.BLUE+"SJ"+Colors.RESET+"OOO             ║\n" +
+                        "        OOOOOOOOOOOOOOOOO              ║\n" +
+                        "         OOOOOOOOOOOOOOO               ║\n" +
+                        "         OOOOOOOOO OOOO                ║\n" +
+                        "          OOOOOO                       ║\n" +
+                        "                                       ║\n" +
+                        "                                       ║\n" +
+                        "                                       ║\n" +
+                        "                                       ║\n" +
+                        "========================================\n";
+        
+        System.out.println(map);
+    }
+    
     public static String ReplaceMonogrammes(String loc) {
         switch(loc) {
                 case "SF":
@@ -43,14 +82,10 @@ public class Utils {
                     return("New York City");
                 case "WA":
                     return("Washington");
-                case "CH":
-                    return("Chicago");
                 case "JA":
                     return("Jacksonville");
                 case "SJ":
                     return("San Jose");
-                case "H":
-                    return("Houston");
                 case "TX":
                     return("Texas");
                 default:
@@ -58,42 +93,17 @@ public class Utils {
         }
     }
     
-    public static void DisplayMap() {
-        String map =    "============================================\n" +
-                        "                                           ║\n" +
-                        "                                           ║\n" +
-                        "    OO                                     ║\n" +
-                        " OOOOOOO                                   ║\n" +
-                        " OO"+Colors.GREEN+"SF"+Colors.RESET+"OOO                                   ║ PARANCSOK: \n" +
-                        " OOOOOOO              OO                   ║ - go\n" +
-                        " OOOOOO              OOOOOO                ║ - heal\n" +
-                        "   OOO    OOOOOOOOOOOOOOOOOOOOO            ║ - shop\n" +
-                        "        OOOOOOOOOOOOOOOOOOOOOOOO           ║ - help\n" +
-                        "        OOO"+Colors.BLUE+"LA"+Colors.RESET+"OOOOOOOOOOOOOOOOOOO           ║\n" +
-                        "         OOOOOOOOO"+Colors.BLUE+"LV"+Colors.RESET+"OOOOOOOOOOOO           ║\n" +
-                        "         OOOOOOOOOOOOOOOOOOOOO             ║\n" +
-                        "         OOOOOOOOOOOOOOOOO                 ║\n" +
-                        "        OOOOOOOOOOOOOOO                    ║\n" +
-                        "       OOOOOOOOOOOOOOOOOO                  ║\n" +
-                        "      OOOOOOOO"+Colors.BLUE+"WA"+Colors.RESET+"OOOOOOOOO                  ║\n" +
-                        "      OOOOOOOOOOOOOOOOO"+Colors.BLUE+"JA"+Colors.RESET+"O                 ║\n" +
-                        "      OOOOOOOOOOOOOOOOOOO         OOO      ║\n" +
-                        "     OOOOO"+Colors.BLUE+"NYC"+Colors.RESET+"OOOOOOOOOOOOO       OOOOOO    ║\n" +
-                        "    OOOOOOOOOOOOOOOOOOOOO    OOOOOOO"+Colors.BLUE+"H"+Colors.RESET+"OO    ║\n" +
-                        "    OOOOOOOOOOOOOOOOOOOOO   OOOOOOOOOOO    ║\n" +
-                        "        OOOOOOOOOOOOOOOO    OOOOOOOOOOOO   ║\n" +
-                        "        OOOO"+Colors.BLUE+"TX"+Colors.RESET+"OOOOOOO"+Colors.BLUE+"SJ"+Colors.RESET+"OOO   OOOOOOOOOOOO  ║\n" +
-                        "        OOOOOOOOOOOOOOOOO   OOOOOOOOOOOO   ║\n" +
-                        "         OOOOOOOOOOOOOOO    OOOOOOOOOOOO   ║\n" +
-                        "         OOOOOOOOO OOOO     OOOO"+Colors.BLUE+"CH"+Colors.RESET+"OOOOOO   ║\n" +
-                        "          OOOOOO            OOOOOOOOOOO    ║\n" +
-                        "                             OOOOOOOOO     ║\n" +
-                        "                             OOOOOOOO      ║\n" +
-                        "                              OOO          ║\n" +
-                        "                                           ║\n" +
-                        "============================================\n";
+    public static Enemy generateEnemy() {
+        Random r = new Random();
+        Enemy e = new Enemy(0, 0, 0);
         
-        System.out.println(map);
+        int rndDmg = r.nextInt(12-7+1) + 7;
+        int rndHp = r.nextInt(100-75) + 75;
+        
+        e.setHp(rndHp);
+        e.setDmg(rndDmg);
+        
+        return e;
     }
     
     public static ArrayList<String> getLocations() {
@@ -103,10 +113,8 @@ public class Utils {
         locations.add("LA");
         locations.add("NYC");
         locations.add("WA");
-        locations.add("CH");
         locations.add("JA");
         locations.add("SJ");
-        locations.add("H");
         locations.add("TX");
         
         return locations;

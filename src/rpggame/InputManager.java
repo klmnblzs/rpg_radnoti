@@ -25,7 +25,17 @@ public class InputManager {
                     System.out.println("");
                 } else {
                     for(String s : getLocations()) {
-                        if(p.getLocation().equals(userInput.split(" ")[1])) {
+                        if(userInput.split(" ")[1].toUpperCase().equals("SF")) {
+                            if(p.isGotBoat()) {
+                                p.setLocation("SF");
+                                break;
+                            } else {
+                                System.out.println("Meg kell venned a hajót, hogy el tudj menekülni!");
+                                wait(2);
+                                break;
+                            }
+                        }
+                        else if(p.getLocation().equals(userInput.split(" ")[1])) {
                             System.out.println("Már itt vagy");
                             wait(2);
                             break;
@@ -36,6 +46,7 @@ public class InputManager {
                             wait(2);
                             break;
                         }
+                        
                     }
                     ClearConsole(p);
                     break;

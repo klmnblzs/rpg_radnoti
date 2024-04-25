@@ -14,8 +14,9 @@ public class Player {
     private int firstAidAmt;
     private int starvation;
     private int energy;
+    private int maxEnergy;
 
-    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt, int energy, int starvation) {
+    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt, int energy, int maxEnergy, int starvation) {
         this.hp = 100;
         this.maxHp = 100;
         this.location = "WA";
@@ -26,6 +27,7 @@ public class Player {
         this.firstAidAmt = 0;
         this.starvation = 100;
         this.energy = 100;
+        this.maxEnergy = 100;
     }
     
     public void heal() {
