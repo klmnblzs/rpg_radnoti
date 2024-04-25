@@ -15,7 +15,8 @@ public class Combat {
         Random r = new Random();
         int chances = r.nextInt(10-1+1) + 1;
 
-        if(chances > 9) {
+        System.out.println(chances);
+        if(chances > 8) {
             return true;
         }
 
@@ -26,7 +27,7 @@ public class Combat {
         Random r = new Random();
         int chances = r.nextInt(10-1+1) + 1;
 
-        if(chances > 9) {
+        if(chances > 7) {
             return true;
         }
 
@@ -67,7 +68,7 @@ public class Combat {
                     }
                     e.setHp(e.getHp()-damageDealt);
 
-                    System.out.println("Te: Megsebezted a(z) " + e.getName() + "-at/et, " + damageDealt + " életpontra. Maradék élete: " + (e.getHp() < 0 ? 0 : e.getHp()));
+                    System.out.println("Te: Megsebezted a(z) " + e.getName() + "-at/et, " + damageDealt + " életpontra. Maradék élete: " + (e.getHp() > 0 ? e.getHp() : 0));
                     System.out.println();
                     playerTurn = false;
                     wait(3);
@@ -90,13 +91,13 @@ public class Combat {
                     } else {
                         damageDealt =  (r.nextInt(p.getDmg()-5+1) + 5) + r.nextInt((p.getDmg()+10)-p.getDmg()+1) + p.getDmg();
                         System.out.println("KRITIKUS SEBZÉS!");
-                        p.setHp(p.getHp()-damageDealt);
-
-                        System.out.println(e.getName() + ": Megsebzett téged " + damageDealt + " életpontra. Maradék életed: " + p.getHp());
-                        System.out.println();
-                        playerTurn = true;
-                        wait(3);
                     }
+                    p.setHp(p.getHp()-damageDealt);
+
+                    System.out.println(e.getName() + ": Megsebzett téged " + damageDealt + " életpontra. Maradék életed: " + (p.getHp() > 0 ? p.getHp() : "0"));
+                    System.out.println();
+                    playerTurn = true;
+                    wait(3);
                 } else {
                     System.out.println("Kitértél az ütés elől!");
                     System.out.println();

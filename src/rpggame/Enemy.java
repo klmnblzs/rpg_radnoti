@@ -35,7 +35,7 @@ public class Enemy {
     }
 
     public boolean checkHeal() {
-        if(hp > hp*0.15) {
+        if(hp < maxHp*0.15) {
             return true;
         }
         return false;

@@ -46,23 +46,19 @@ public class Utils {
                 " OOOOOO              OOOOOO            ║ - heal\n" +
                 "   OOO    OOOOOOOOOOOOOOOOOOOOO        ║ - shop\n" +
                 "        OOOOOOOOOOOOOOOOOOOOOOOO       ║ - help\n" +
-                "        OOO" + Colors.BLUE + "LA" + Colors.RESET + "OOOOOOOOOOOOOOOOOOO       ║\n" +
-                "         OOOOOOOOO" + Colors.BLUE + "LV" + Colors.RESET + "OOOOOOOOOOOO       ║\n" +
+                "        OOO" + Colors.RED + "LA" + Colors.RESET + "OOOOOOOOOOOOOOOOOOO       ║\n" +
+                "         OOOOOOOOOOOOOOO" + Colors.RED + "LV" + Colors.RESET + "OOOOOO       ║\n" +
                 "         OOOOOOOOOOOOOOOOOOOOO         ║\n" +
                 "         OOOOOOOOOOOOOOOOO             ║\n" +
                 "        OOOOOOOOOOOOOOO                ║\n" +
                 "       OOOOOOOOOOOOOOOOOO              ║\n" +
-                "      OOOOOOOO" + Colors.BLUE + "WA" + Colors.RESET + "OOOOOOOOO              ║\n" +
-                "      OOOOOOOOOOOOOOOOO" + Colors.BLUE + "JA" + Colors.RESET + "O             ║\n" +
+                "      OOOOOOOO" + Colors.CYAN + "WA" + Colors.RESET + "OOOOOOOOO              ║\n" +
+                "      OOOOOOOOOOOOOOOOO" + Colors.RED + "TX" + Colors.RESET + "O             ║\n" +
                 "      OOOOOOOOOOOOOOOOOOO              ║\n" +
-                "     OOOOO" + Colors.BLUE + "NYC" + Colors.RESET + "OOOOOOOOOOOOO             ║\n" +
+                "     OOOOO" + Colors.RED + "NYC" + Colors.RESET + "OOOOOOOOOOOOO             ║\n" +
                 "    OOOOOOOOOOOOOOOOOOOOO              ║\n" +
                 "    OOOOOOOOOOOOOOOOOOOOO              ║\n" +
-                "        OOOOOOOOOOOOOOOO               ║\n" +
-                "        OOOO" + Colors.BLUE + "TX" + Colors.RESET + "OOOOOOO" + Colors.BLUE + "SJ" + Colors.RESET + "OOO             ║\n" +
-                "        OOOOOOOOOOOOOOOOO              ║\n" +
-                "         OOOOOOOOOOOOOOO               ║\n" +
-                "         OOOOOOOOO OOOO                ║\n" +
+                "       OOOOOOOOOOO OOOO                ║\n" +
                 "          OOOOOO                       ║\n" +
                 "========================================\n";
 
@@ -81,10 +77,6 @@ public class Utils {
                 return ("New York City");
             case "WA":
                 return ("Washington");
-            case "JA":
-                return ("Jacksonville");
-            case "SJ":
-                return ("San Jose");
             case "TX":
                 return ("Texas");
             default:
@@ -99,8 +91,6 @@ public class Utils {
         locations.add("LA");
         locations.add("NYC");
         locations.add("WA");
-        locations.add("JA");
-        locations.add("SJ");
         locations.add("TX");
 
         return locations;

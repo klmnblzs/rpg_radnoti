@@ -37,48 +37,69 @@ public class Player {
     public void selectPlayerCast() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Válassz magadnak egy osztályt:");
-        System.out.println("1.) Class1");
-        System.out.println("  - Közelre jó");
-        System.out.println("2.) Class2");
-        System.out.println("  - Közelre és távolra jó, cserébe xy.");
-        System.out.println("3.) Class3");
-        System.out.println("  - Távolra jó");
+        System.out.println("1.) Csontbontó");
+        System.out.println("  Fegyvere egy rozsdás stop tábla.");
+        System.out.println("  - Sebzése:   15 sebzés pont");
+        System.out.println( " A nagyobb testfelépítésének köszönhetően sokkal több életerővel rendelkezik, viszont lomhaságából adódóan kevesebbet is sebez.");
+        System.out.println("  - Életereje: 150 életerő pont");
+        System.out.println("  - Fel van szerelve 2 elsősegély dobozzal.");
+        System.out.println();
+        System.out.println("2.) Vándor");
+        System.out.println("  Fegyvere egy szögekkel kidíszített baseball ütő.");
+        System.out.println("  - Sebzése:   20 sebzés pont");
+        System.out.println("  Agilis, és alkalmazkodó. Tökéletesen tud közép, illetve közeli távolságból harcolni.");
+        System.out.println("  - Életereje: 125 életerő pont");
+        System.out.println("  - Fel van szerelve 1 elsősegély dobozzal.");
+        System.out.println();
+        System.out.println("3.) Íjász");
+        System.out.println("  Fegyvere egy csigás íj, magyar nyílvesszőkkel.");
+        System.out.println("  - Sebzése:   25 sebzés pont");
+        System.out.println("  Kevés életerővel rendelkezik, de a távolból hatalmas sebzést tud felmérni ellenfelére.");
+        System.out.println("  - Életereje: 100 életerő pont");
+        System.out.println("  - Nincsen kezdőleges elsősegély doboza.");
+        System.out.println();
         
-        System.out.print("(1,2,3) > ");
+        System.out.print("> ");
         String choice = sc.nextLine();
-        
+
+        while(!choice.equals("1") && !choice.equals("2") && !choice.equals("3")) {
+            System.out.println("Kérlek a következő opciókkal válaszolj: 1, 2, vagy 3");
+            System.out.print("> ");
+            choice = sc.nextLine();
+        }
+
         switch(choice){
-                case "1":
-                    this.hp = 150;
-                    this.maxHp=150;
-                    this.firstAidAmt = 2;
-                    this.weapon = "Feszítővas";
-                    this.dmg = 15;
-                    break;
-                
-                case "2":
-                    this.hp = 125;
-                    this.maxHp= 125;
-                    this.firstAidAmt = 1;
-                    this.weapon = "Katana";
-                    this.dmg = 20;
-                    break;
-                    
-                case "3":
-                    this.hp = 100;
-                    this.maxHp=100;
-                    this.firstAidAmt = 0;
-                    this.weapon = "Íj";
-                    this.dmg = 25;
-                    break;
-                    
-                default:
-                    break;
+            case "1":
+                this.hp = 150;
+                this.maxHp=150;
+                this.firstAidAmt = 2;
+                this.weapon = "Stop tábla";
+                this.dmg = 15;
+                break;
+
+            case "2":
+                this.hp = 125;
+                this.maxHp= 125;
+                this.firstAidAmt = 1;
+                this.weapon = "Szöges baseball ütő";
+                this.dmg = 20;
+                break;
+
+            case "3":
+                this.hp = 100;
+                this.maxHp=100;
+                this.firstAidAmt = 0;
+                this.weapon = "Csigás íj";
+                this.dmg = 25;
+                break;
+
+            default:
+                break;
         }
     }
     
     public boolean  checkHeal() {
-        if(hp < hp*0.15) {
+        if(hp < maxHp*0.15) {
             return true;
         }
         return false;
