@@ -19,6 +19,7 @@ public class Utils {
         for (int i = 0; i < 100; i++) {
             System.out.println("");
         }
+
         DisplayMap();
         DisplayPlayerStats(p);
     }
@@ -91,8 +92,6 @@ public class Utils {
         }
     }
 
-
-
     public static ArrayList<String> getLocations() {
         ArrayList<String> locations = new ArrayList<String>();
         locations.add("SF");
@@ -106,5 +105,4 @@ public class Utils {
 
         return locations;
     }
-
 }

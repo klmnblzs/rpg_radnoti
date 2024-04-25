@@ -2,8 +2,7 @@ package rpggame;
 
 import java.util.Scanner;
 
-import static rpggame.Combat.fightPrototype;
-import static rpggame.InputManager.UserInput;
+import static rpggame.Commands.UserInput;
 import static rpggame.Utils.ClearConsole;
 
 public class RpgGame {
