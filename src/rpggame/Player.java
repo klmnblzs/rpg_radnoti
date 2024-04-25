@@ -1,6 +1,8 @@
 
 package rpggame;
 
+import java.util.Scanner;
+
 public class Player {
     private int hp;
     private int maxHp;
@@ -8,25 +10,27 @@ public class Player {
     private String weapon;
     private int dmg;
     private int money;
-    private int def;
     private boolean gotBoat;
-    private int firstAidKitAmt;
+    private int firstAidAmt;
+    private int starvation;
+    private int energy;
 
-    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int def, int firstAidKitAmt) {
+    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt, int energy, int starvation) {
         this.hp = 100;
         this.maxHp = 100;
         this.location = "WA";
-        this.weapon = "Feszítővas";
+        this.weapon = null;
         this.dmg = 10;
         this.money = 0;
         this.gotBoat = false;
-        this.def = 0;
-        this.firstAidKitAmt = 0;
+        this.firstAidAmt = 0;
+        this.starvation = 100;
+        this.energy = 100;
     }
     
     public void heal() {
-        if(firstAidKitAmt!=0) {
-            firstAidKitAmt--;
+        if(firstAidAmt!=0) {
+            firstAidAmt--;
             hp=maxHp;
             System.out.println("Életerő feltöltve");
        } else {
@@ -34,24 +38,51 @@ public class Player {
         }
     }
     
-    public boolean isAlive() {
-        return hp>0;
-    }
-
-    public int getFirstAidKitAmt() {
-        return firstAidKitAmt;
-    }
-
-    public void setFirstAidKitAmt(int firstAidKitAmt) {
-        this.firstAidKitAmt = firstAidKitAmt;
+    public void selectPlayerCast() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Válassz magadnak egy osztályt:");
+        System.out.println("1.) Class1");
+        System.out.println("  - Közelre jó");
+        System.out.println("2.) Class2");
+        System.out.println("  - Közelre és távolra jó, cserébe xy.");
+        System.out.println("3.) Class3");
+        System.out.println("  - Távolra jó");
+        
+        System.out.print("(1,2,3) > ");
+        String choice = sc.nextLine();
+        
+        switch(choice){
+                case "1":
+                    this.hp = 150;
+                    this.maxHp=150;
+                    this.firstAidAmt = 2;
+                    this.weapon = "Feszítővas";
+                    this.dmg = 15;
+                    break;
+                
+                case "2":
+                    this.hp = 125;
+                    this.maxHp= 125;
+                    this.firstAidAmt = 1;
+                    this.weapon = "Katana";
+                    this.dmg = 20;
+                    break;
+                    
+                case "3":
+                    this.hp = 100;
+                    this.maxHp=100;
+                    this.firstAidAmt = 0;
+                    this.weapon = "Íj";
+                    this.dmg = 25;
+                    break;
+                    
+                default:
+                    break;
+        }
     }
     
-    public int getDef() {
-        return def;
-    }
-
-    public void setDef(int def) {
-        this.def = def;
+    public boolean isAlive() {
+        return hp>0;
     }
 
     public int getHp() {
@@ -109,6 +140,32 @@ public class Player {
     public void setGotBoat(boolean gotBoat) {
         this.gotBoat = gotBoat;
     }
+
+    public int getFirstAidAmt() {
+        return firstAidAmt;
+    }
+
+    public void setFirstAidAmt(int firstAidAmt) {
+        this.firstAidAmt = firstAidAmt;
+    }
+
+    public int getStarvation() {
+        return starvation;
+    }
+
+    public void setStarvation(int starvation) {
+        this.starvation = starvation;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+    
+    
 
     @Override
     public String toString() {
