@@ -37,7 +37,7 @@ public class Combat {
         Random r = new Random();
         int chances = r.nextInt(10-1+1) + 1;
 
-        if(chances > 1) {
+        if(chances > 8) {
             return true;
         }
 
@@ -103,9 +103,6 @@ public class Combat {
                     playerTurn = true;
                     wait(3);
                 }
-
-
-
             }
         }
 
