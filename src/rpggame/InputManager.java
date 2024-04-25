@@ -1,9 +1,10 @@
 package rpggame;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static rpggame.Utils.ClearConsole;
-import static rpggame.Utils.getLocations;
+
+import static rpggame.Utils.*;
 
 public class InputManager {
     public static void wait(int numSeconds){
@@ -23,6 +24,7 @@ public class InputManager {
                         System.out.print(s + ", ");
                     }
                     System.out.println("");
+                    wait(2);
                 } else {
                     for(String s : getLocations()) {
                         if(userInput.split(" ")[1].toUpperCase().equals("SF")) {
@@ -35,18 +37,26 @@ public class InputManager {
                                 break;
                             }
                         }
-                        else if(p.getLocation().equals(userInput.split(" ")[1])) {
+                        else if(p.getLocation().equals(userInput.split(" ")[1].toUpperCase())) {
                             System.out.println("Már itt vagy");
                             wait(2);
                             break;
                         }
                         else if(userInput.split(" ")[1].toUpperCase().equals(s)) {
+                            Utils.ClearFullConsole();
                             p.setLocation(s);
-                            System.out.println("ide mentél: " + s);
+                            System.out.println("Elutaztál " + Utils.ReplaceMonogrammes(s) + "-ba/be!");
+                            if(Combat.genRandomFight()) {
+                                ClearFullConsole();
+                                Enemy e = Enemy.generateStats();
+                                System.out.println();
+                                System.out.println("Az utadon "+ Utils.ReplaceMonogrammes(p.getLocation()) + "-ba/be, rád támadt egy " + e.getName() + "!");
+                                wait(2);
+                                Combat.fightPrototype(p, e);
+                            }
                             wait(2);
                             break;
                         }
-                        
                     }
                     ClearConsole(p);
                     break;

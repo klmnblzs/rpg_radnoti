@@ -12,11 +12,8 @@ public class Player {
     private int money;
     private boolean gotBoat;
     private int firstAidAmt;
-    private int starvation;
-    private int energy;
-    private int maxEnergy;
 
-    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt, int energy, int maxEnergy, int starvation) {
+    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt) {
         this.hp = 100;
         this.maxHp = 100;
         this.location = "WA";
@@ -25,16 +22,13 @@ public class Player {
         this.money = 0;
         this.gotBoat = false;
         this.firstAidAmt = 0;
-        this.starvation = 100;
-        this.energy = 100;
-        this.maxEnergy = 100;
     }
     
     public void heal() {
         if(firstAidAmt!=0) {
             firstAidAmt--;
             hp=maxHp;
-            System.out.println("Életerő feltöltve");
+            System.out.println("Életerő feltöltve! Maradék elsősegély doboz: " + getFirstAidAmt());
        } else {
             System.out.println("Nem tudsz életerőt újratölteni! (Nincsen elsősegély dobozod.)");
         }
@@ -83,8 +77,8 @@ public class Player {
         }
     }
     
-    public boolean checkHeal() {
-        if(hp > hp*0.15) {
+    public boolean  checkHeal() {
+        if(hp < hp*0.15) {
             return true;
         }
         return false;
@@ -157,23 +151,6 @@ public class Player {
     public void setFirstAidAmt(int firstAidAmt) {
         this.firstAidAmt = firstAidAmt;
     }
-
-    public int getStarvation() {
-        return starvation;
-    }
-
-    public void setStarvation(int starvation) {
-        this.starvation = starvation;
-    }
-
-    public int getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(int energy) {
-        this.energy = energy;
-    }
-    
     
 
     @Override
