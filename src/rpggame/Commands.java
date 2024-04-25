@@ -14,7 +14,7 @@ public class Commands {
     }
     
     public static void UserInput(String userInput, Player p) {
-        switch(userInput.split(" ")[0]) {
+        switch(userInput.split(" ")[0].toLowerCase()) {
             case "go":
                 if(userInput.split(" ").length==1) {
                     System.out.println("Utazható helyek: ");
@@ -67,27 +67,16 @@ public class Commands {
             case "shop":
                 if(p.getLocation().equals("WA")) {
                     if(userInput.split(" ").length==1) {
-                        System.out.println("Fegyvered (" + p.getWeapon() + ") fejlesztése");
-                        System.out.println("  - Új damage: " + Integer.toString(p.getDmg() + 1));
-                        System.out.println("  - $100");
-                        System.out.println(" Fejlesztesz? (Y/N)");
-                        System.out.print("> ");
-                        Scanner sc = new Scanner(System.in);
-                        String choice = sc.nextLine();
-                        
-                        if(choice.equals("n") || choice.equals("N")) {
-                            ClearConsole(p);
-                        } else {
-                            System.out.println("fejlesztés majd ide....");
-                            wait(2);
-                            ClearConsole(p);
-                        }
-                        
+                        System.out.println("--- FEGYVER ---");
+                        System.out.println("1. " + p.getWeapon() + " fejlesztése");
+                        System.out.println(" - +3 dmg");
+                        System.out.println(" $20");
+
                         wait(2);
                         break;
                     }
                 } else {
-                    System.out.println("Csak Washingtonba tudsz vásárolni/fejleszteni!");
+                    System.out.println("A legközelebbi bolt Washingtonban (WA) van. Utazz oda, ha szeretnél vásárolni!");
                     wait(2);
                     ClearConsole(p);
                 }

@@ -16,13 +16,14 @@ public class RpgGame {
         ClearConsole(p);
         
         while(game) {
+            if(!p.isAlive()) {
+                game=false;
+            }
             if(p.getLocation().equals("SF")) {
                 System.out.println("badum tss");
                 game=false;
             }
-            if(!p.isAlive()) {
-                game=false;
-            }
+
 
             System.out.print("> ");
             String loc = sc.nextLine();
