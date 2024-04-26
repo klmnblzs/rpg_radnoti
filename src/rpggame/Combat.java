@@ -108,7 +108,10 @@ public class Combat {
         }
 
         if(!e.isAlive()) {
-            System.out.println(e.getName() + " legyőzve! Jutalmad: 15 peso");
+            int moneyFound = r.nextInt(150-75+1) + 75;
+            System.out.println(e.getName() + " zsebeit átnézted, és találtál $" + moneyFound + "-t");
+            p.setMoney(p.getMoney() + moneyFound);
+            p.setKills(p.getKills() + 1);
         } else if(!p.isAlive()) {
             System.out.println("Meghaltál!");
         }

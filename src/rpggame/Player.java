@@ -12,8 +12,9 @@ public class Player {
     private int money;
     private boolean gotBoat;
     private int firstAidAmt;
+    private int kills;
 
-    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt) {
+    public Player(int hp, int maxHp, String location, String weapon, int dmg, int money, boolean gotBoat, int firstAidKitAmt, int kills) {
         this.hp = 100;
         this.maxHp = 100;
         this.location = "WA";
@@ -22,6 +23,7 @@ public class Player {
         this.money = 0;
         this.gotBoat = false;
         this.firstAidAmt = 0;
+        this.kills = 0;
     }
     
     public void heal() {
@@ -99,12 +101,17 @@ public class Player {
     }
     
     public boolean  checkHeal() {
-        if(hp < maxHp*0.15) {
-            return true;
-        }
-        return false;
+        return hp <= maxHp - 100;
     }
-    
+
+    public int getKills() {
+        return kills;
+    }
+
+    public void setKills(int kills) {
+        this.kills = kills;
+    }
+
     public boolean isAlive() {
         return hp>0;
     }
