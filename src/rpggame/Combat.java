@@ -11,41 +11,7 @@ public class Combat {
         }
     }
 
-    public static boolean checkDodge() {
-        Random r = new Random();
-        int chances = r.nextInt(10-1+1) + 1;
-
-        System.out.println(chances);
-        if(chances > 8) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public static boolean checkCritHit() {
-        Random r = new Random();
-        int chances = r.nextInt(10-1+1) + 1;
-
-        if(chances > 7) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public static boolean genRandomFight() {
-        Random r = new Random();
-        int chances = r.nextInt(10-1+1) + 1;
-
-        if(chances > 8) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public static void fightPrototype(Player p, Enemy e) {
+    public static void randomFight(Player p, Enemy e) {
         boolean playerTurn = true;
         Random r = new Random();
 
@@ -115,5 +81,39 @@ public class Combat {
         } else if(!p.isAlive()) {
             System.out.println("Meghaltál!");
         }
+    }
+
+    public static boolean checkDodge() {
+        Random r = new Random();
+        int chances = r.nextInt(10-1+1) + 1;
+
+        System.out.println(chances);
+        if(chances > 8) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean checkCritHit() {
+        Random r = new Random();
+        int chances = r.nextInt(10-1+1) + 1;
+
+        if(chances > 7) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean genRandomFight() {
+        Random r = new Random();
+        int chances = r.nextInt(10-1+1) + 1;
+
+        if(chances > 8) {
+            return true;
+        }
+
+        return false;
     }
 }

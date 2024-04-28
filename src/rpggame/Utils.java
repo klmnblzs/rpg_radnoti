@@ -32,10 +32,12 @@ public class Utils {
 
     public static void DisplayPlayerStats(Player p) {
         System.out.println("========================================");
-        System.out.println("$"+p.getMoney()+" | " + ReplaceMonogrammes(p.getLocation()) + " (" + p.getLocation() + ")                   ║");
-        System.out.println(p.getWeapon() + " | " + p.getDmg() + " sebzés                 ║");
-        System.out.println("Életerő: " + p.getHp() + "/" + p.getMaxHp() + " | " + p.getFirstAidAmt() + " elsősegély doboz  ║");
+        System.out.println("$"+p.getMoney()+" | " + ReplaceMonogrammes(p.getLocation()) + " (" + p.getLocation() + ")");
+        System.out.println(p.getWeapon() + " | " + p.getDmg() + " sebzés");
+        System.out.println("Életerő: " + p.getHp() + "/" + p.getMaxHp() + " | " + p.getFirstAidAmt() + " elsősegély doboz");
         System.out.println("========================================");
+        System.out.println();
+        System.out.println("A parancsokért használd a 'help' parancsot!");
         System.out.println();
     }
 
