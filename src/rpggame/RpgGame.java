@@ -16,7 +16,7 @@ public class RpgGame {
             if(!p.isAlive()) {
                 game=false;
             }
-            if(p.getLocation().equals("SF")) {
+            else  if(p.getLocation().equals("SF")) {
                 game=false;
                 System.out.println("jatek vege ide");
             } else {

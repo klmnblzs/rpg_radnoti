@@ -47,15 +47,16 @@ public class Combat {
             } else {
                 if(e.checkHeal()) {
                     e.heal();
+                    System.out.println(e.getName() + ": Feltöltötte az életerejét! 0 elsősegély doboza maradt.");
                 }
 
                 int damageDealt = 0;
 
                 if(!checkDodge()) {
                     if(!checkCritHit()) {
-                        damageDealt = r.nextInt(p.getDmg()-5+1) + 5;
+                        damageDealt = r.nextInt(e.getDmg()-5+1) + 5;
                     } else {
-                        damageDealt =  (r.nextInt(p.getDmg()-5+1) + 5) + r.nextInt((p.getDmg()+10)-p.getDmg()+1) + p.getDmg();
+                        damageDealt =  (r.nextInt(e.getDmg()-5+1) + 5) + r.nextInt((e.getDmg()+10)-e.getDmg()+1) + e.getDmg();
                         System.out.println("KRITIKUS SEBZÉS!");
                     }
                     p.setHp(p.getHp()-damageDealt);
@@ -74,7 +75,19 @@ public class Combat {
         }
 
         if(!e.isAlive()) {
-            int moneyFound = r.nextInt(150-75+1) + 75;
+            int moneyFound = 0;
+            if(p.getKills() <= 5) {
+                moneyFound = r.nextInt(50-25+1) + 25;
+            } else if(p.getKills() > 5 && p.getKills() <= 10) {
+                moneyFound = r.nextInt(100-75+1) + 75;
+            } else if(p.getKills() > 10 && p.getKills() <= 15) {
+                moneyFound = r.nextInt(200-125+1) + 125;
+            } else if(p.getKills() > 15 && p.getKills() <= 20) {
+                moneyFound = r.nextInt(500-350+1) + 350;
+            } else if(p.getKills() > 20) {
+                moneyFound = r.nextInt(1500-1000+1) + 1000;
+            }
+
             System.out.println(e.getName() + " zsebeit átnézted, és találtál $" + moneyFound + "-t");
             p.setMoney(p.getMoney() + moneyFound);
             p.setKills(p.getKills() + 1);
@@ -87,7 +100,6 @@ public class Combat {
         Random r = new Random();
         int chances = r.nextInt(10-1+1) + 1;
 
-        System.out.println(chances);
         if(chances > 8) {
             return true;
         }

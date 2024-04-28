@@ -19,19 +19,25 @@ public class Enemy {
         this.firstAidAmt = firstAidAmt;
     }
 
-    public static Enemy generateStats() {
+    public static Enemy generateStats(Player p) {
         Random r = new Random();
         Enemy e = new Enemy(null, 0, 0, 0, 0);
-        List<String> names = Arrays.asList("Paraszt", "Zombi", "Túlélő");
+        List<String> names = Arrays.asList("Paraszt", "Zombi", "Túlélő", "Zsoldos", "Útonálló", "Boszorkány", "Bérgyilkos", "Szállító", "Proletár");
 
-        int rndDmg = r.nextInt(12 - 7 + 1) + 7;
-        int rndHp = r.nextInt(100 - 75) + 75;
+        int rndDmg = r.nextInt((p.getDmg()-5) - 7 + 1) + 7;
+        int rndHp = r.nextInt((p.getHp()-25) - 75+1) + 75;
+        int firstAid = r.nextInt(3-1);
 
         e.setHp(rndHp);
         e.setDmg(rndDmg);
         e.setName(names.get(r.nextInt(names.size())));
+        e.setFirstAidAmt(firstAid);
 
         return e;
+    }
+
+    public boolean checkFirstAid() {
+        return getFirstAidAmt()>0;
     }
 
     public boolean checkHeal() {
@@ -42,6 +48,14 @@ public class Enemy {
         if(firstAidAmt>0){
             hp=maxHp;
         }
+    }
+
+    public int getFirstAidAmt() {
+        return firstAidAmt;
+    }
+
+    public void setFirstAidAmt(int firstAidAmt) {
+        this.firstAidAmt = firstAidAmt;
     }
 
     /*

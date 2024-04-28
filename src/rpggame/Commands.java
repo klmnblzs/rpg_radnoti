@@ -24,7 +24,8 @@ public class Commands {
         System.out.println(" - buy (mit)");
         System.out.println("  - Vásárolható tárgyak listázásához, csak írd be, hogy 'buy'!");
         System.out.println("  - Példa: buy 1");
-        System.out.println(" - help");
+        System.out.println(" - fight");
+        System.out.println("  - Washingtonon kívül bárhol tudsz harcolni!");
     }
 
     public static void CommandInterpreter(String userInput, Player p) {
@@ -60,7 +61,7 @@ public class Commands {
                             System.out.println("Elutaztál " + Utils.ReplaceMonogrammes(s) + "-ba/be!");
                             if(Combat.genRandomFight()) {
                                 ClearFullConsole();
-                                Enemy e = Enemy.generateStats();
+                                Enemy e = Enemy.generateStats(p);
                                 System.out.println();
                                 System.out.println("Az utadon "+ Utils.ReplaceMonogrammes(p.getLocation()) + "-ba/be, rád támadt egy " + e.getName() + "!");
                                 wait(2);
@@ -195,6 +196,7 @@ public class Commands {
                                     ClearFullConsole();
 
                                     System.out.println("Megvásároltad a hajót!");
+                                    System.out.println("Mostmár el tudsz menekülni San Franciscoba.");
 
                                     wait(2);
                                     ClearConsole(p);
@@ -216,6 +218,18 @@ public class Commands {
                 } else {
                     ClearFullConsole();
                     System.out.println("A legközelebbi bolt Washingtonban (WA) van. Utazz oda, ha szeretnél vásárolni!");
+                    wait(2);
+                    ClearConsole(p);
+                }
+            case "fight":
+                if(!p.getLocation().equals("WA")) {
+                    ClearFullConsole();
+                    Enemy e = Enemy.generateStats(p);
+                    Combat.randomFight(p, e);
+                    wait(2);
+                    ClearConsole(p);
+                } else {
+                    System.out.println("Washingtonban nem tudsz harcolni! Ez egy civilizált terület.");
                     wait(2);
                     ClearConsole(p);
                 }
