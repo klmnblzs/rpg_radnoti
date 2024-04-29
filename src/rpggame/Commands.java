@@ -216,12 +216,14 @@ public class Commands {
                                 ClearConsole(p);
                                 break;
                         }
+                        break;
                     }
                 } else {
                     ClearFullConsole();
                     System.out.println("A legközelebbi bolt Washingtonban (WA) van. Utazz oda, ha szeretnél vásárolni!");
                     wait(2);
                     ClearConsole(p);
+                    break;
                 }
             case "fight":
                 if(!p.getLocation().equals("WA")) {
@@ -230,10 +232,12 @@ public class Commands {
                     Combat.randomFight(p, e);
                     wait(2);
                     ClearConsole(p);
+                    break;
                 } else {
                     System.out.println("Washingtonban nem tudsz harcolni! Ez egy civilizált terület.");
                     wait(2);
                     ClearConsole(p);
+                    break;
                 }
             case "help":
                 ClearConsole(p);
