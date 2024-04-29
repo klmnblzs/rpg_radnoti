@@ -28,7 +28,8 @@ public class RpgGame {
             }
             else  if(p.getLocation().equals("SF")) {
                 game=false;
-                System.out.println("jatek vege ide");
+                ClearFullConsole();
+                Utils.typeWriterEffect("Elutaztál a menekülési pontra, és a családodat biztonságban találtad.");
             } else {
                 System.out.print("> ");
                 String loc = sc.nextLine();
