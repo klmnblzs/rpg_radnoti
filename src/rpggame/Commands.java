@@ -38,6 +38,8 @@ public class Commands {
                     }
                     System.out.println("");
                     wait(2);
+                    ClearConsole(p);
+                    break;
                 } else {
                     for(String s : getLocations()) {
                         if(userInput.split(" ")[1].toUpperCase().equals("SF")) {
