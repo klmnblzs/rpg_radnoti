@@ -99,4 +99,18 @@ public class Utils {
 
         return locations;
     }
+
+    public static String typeWriterEffect(String text) {
+        int i;
+        for(i = 0; i < text.length(); i++){
+            System.out.printf("%c", text.charAt(i));
+            try{
+                Thread.sleep(80);
+            }catch(InterruptedException ex){
+                Thread.currentThread().interrupt();
+            }
+        }
+
+        return text;
+    }
 }
