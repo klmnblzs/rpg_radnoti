@@ -22,6 +22,8 @@ public class RpgGame {
 
         p.selectPlayerCast();
         ClearConsole(p);
+        System.out.println("Utazni  a 'go' paranccsal tudsz.");
+        System.out.println("Ha ellenséges területre mentél, akkor a 'fight' paranccsal tudsz indítványozni támadást!");
         while(game) {
             if(!p.isAlive()) {
                 game=false;
