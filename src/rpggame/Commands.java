@@ -102,6 +102,7 @@ public class Commands {
                         String playerItem = userInput.split(" ")[1];
                         int playerMoney = p.getMoney();
                         switch(playerItem) {
+                            case "fegyver":
                             case "1":
                                 if(playerMoney >= Shop.getWeaponUpgrade()) {
                                     Shop.setWeaponUpgrade(Shop.getWeaponUpgrade() + 100);
@@ -119,6 +120,7 @@ public class Commands {
                                     ClearConsole(p);
                                 }
                                 break;
+                            case "páncél":
                             case "2":
                                 if(playerMoney >= Shop.getArmorUpgrade()) {
                                     Shop.setArmorUpgrade(Shop.getArmorUpgrade() + 150);
@@ -176,6 +178,7 @@ public class Commands {
                         int playerMoney = p.getMoney();
                         switch(playerItem) {
                             case "1":
+                            case "elsősegély":
                                 if(playerMoney >= Shop.getFirstAidPrice()) {
                                     p.setFirstAidAmt(p.getFirstAidAmt() + 1);
                                     ClearFullConsole();
@@ -193,6 +196,7 @@ public class Commands {
 
                                 break;
                             case "2":
+                            case "hajó":
                                 if(playerMoney >= Shop.getBoatPrice()) {
                                     p.setGotBoat(true);
                                     ClearFullConsole();
