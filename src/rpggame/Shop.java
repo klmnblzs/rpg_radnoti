@@ -7,7 +7,7 @@ public class Shop {
     // $200-al növekszik mindig
     // +5 hp
     public static int armorUpgrade = 150;
-    public static int firstAidPrice = 500;
+    public static int firstAidPrice = 250;
     public static int boatPrice = 10000;
 
     public static int getWeaponUpgrade() {
